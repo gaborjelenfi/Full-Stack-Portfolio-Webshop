@@ -123,10 +123,13 @@ But by default if you can delete something you actually just set the `isDeleted`
   - orders
   - products
 
+[Customer document example]<img src="/images/customer_document_example.png">
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
+[Main page screenshot]<img src="/images/main_page.png">
+[Shopping cart screenshot]<img src="/images/shopping_cart.png">
+[Checkout screenshot]<img src="/images/checkout.png">
+[Create account screenshot]<img src="/images/create_account.png">
 
 
 ## Usage
