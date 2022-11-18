@@ -1,4 +1,4 @@
-<p float=left>
+<p align=center>
 <img src="/images/mongodb.png" height="50px">
 <img src="/images/expressjs.png" height="50px">
 <img src="/images/react.png" height="50px">
@@ -15,15 +15,15 @@
 > I have been learning programming for a couple of years now. 
 > I have started with **Frontend** technologies as a hobby but I decided to make one step forward in April 2022 and I have been started **Backend** technologies since then.\
 
-### For customer site -> **Live** **demo** [_HERE_](https://tangerine-fenglisu-dd980d.netlify.app/).
-### For admin site -> **Live** **demo** [_HERE_](https://tangerine-fenglisu-dd980d.netlify.app/admin).
+#### For customer site -> **Live** **demo** [_https://tangerine-fenglisu-dd980d.netlify.app_](https://tangerine-fenglisu-dd980d.netlify.app/).
+#### For admin site -> **Live** **demo** [_https://tangerine-fenglisu-dd980d.netlify.app/admin_](https://tangerine-fenglisu-dd980d.netlify.app/admin).
 
 ## Table of Contents
 * [General Info](#general-information)
+* [Installation](#installation)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
 * [Screenshots](#screenshots)
-* [Setup](#setup)
 * [Usage](#usage)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
@@ -37,6 +37,19 @@
 - It has server side authentication and frontend side authorization. Input fields validation on both Backend and Frontend. More details below.
 - This project purpose was to show what I can achieve and hopefully change my career path.
 - I made this project only to my portfolio.
+
+## Installation
+Install the dependencies to both **Backend** and **Frontend** and start them separately.
+```sh
+cd Backend
+npm install
+npm run start:dev
+```
+```sh
+cd Frontend
+npm install
+npm start
+```
 
 
 ## Technologies Used
@@ -58,19 +71,62 @@ For the full list of dependencies check the package.json file please.
 
 ## Features
 
-### Customer
----
-Every customer
+### _Customer:_
+
+- Every customers can:
+  - view the products even with filter
+  - add products to cart
+  - edit cart
+  - demo buy via **Stripe**
+
+- Customers with registration can:
+  - store and edit their addresses:
+    - Billing address
+    - Shipping address
+  - select the stored addresses in the checkout section
+  - edit their account data
+  - check their recent orders
+  
+- customers without registration can:
+  - create an account
+  
+### _Admin user:_
+
+- Every admins can:
+  - add new product to database
+  - view the products and edit them
+  - add new category and edit existing ones
+  - add new manufacturer and edit existing ones
+  - find a customer by email address and view their orders
+  - find an order by order's ID
+  - list every admin users and edit their own account data
+  
+- Main admin can:
+  - create new admin user
+  - edit every admin users' account data
+  
+_For_ _demo_ _purpose_, _no_ _one_ _can_ _delete_ _anything!_\
+If you install the project on your computer and you remove the `accessDenied()` method in any deletion file in mutation folder you can use that feature.\
+Find those files at `Backend/graphql/mutation/`.\
+But by default if you can delete something you actually just set the `isDeleted` field to true for that item in the database.
+
+### _MongoDB:_
+
+- Collection:
+  - **furnitureWebshop**
+
+- Documents:
+  - admins
+  - customers
+  - furniturecategory
+  - manufacturers
+  - orders
+  - products
+
 
 ## Screenshots
 ![Example screenshot](./img/screenshot.png)
 <!-- If you have screenshots you'd like to share, include them here. -->
-
-
-## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
-
-Proceed to describe how to install / setup one's local environment / get started with the project.
 
 
 ## Usage
@@ -102,6 +158,8 @@ Give credit here.
 - This project was based on [this tutorial](https://www.example.com).
 - Many thanks to...
 
+## Contact
+Created by Gábor Jelenfi. gabor.jelenfi@gmail.com - feel free to contact me!
 
 
 <!-- Optional -->
