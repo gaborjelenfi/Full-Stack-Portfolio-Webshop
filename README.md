@@ -14,7 +14,8 @@
 > Please regard that this is an **MVP**. This **SPA** represents some of my knowledge in web development. 
 > I have been learning programming for a couple of years now. 
 > I have started with **Frontend** technologies as a hobby but I decided to make one step forward in April 2022 and I have been started **Backend** technologies since then.\
-> For this project -> Live demo [_HERE_](https://tangerine-fenglisu-dd980d.netlify.app/).
+
+### For this project -> **Live** **demo** [_HERE_](https://tangerine-fenglisu-dd980d.netlify.app/).
 
 ## Table of Contents
 * [General Info](#general-information)
