@@ -18,18 +18,23 @@
 #### For customer site -> **Live** **demo** [_https://tangerine-fenglisu-dd980d.netlify.app_](https://tangerine-fenglisu-dd980d.netlify.app/).
 #### For admin site -> **Live** **demo** [_https://tangerine-fenglisu-dd980d.netlify.app/admin_](https://tangerine-fenglisu-dd980d.netlify.app/admin).
 
+#### Usage datas:
+- Create your own customer account at `Login/Create an Account`
+- Demo customers:
+  - email: **`zanna@gmail.com`** && password: **`zannarenee`**
+- Demo admin user:
+  - email: **`bond@superb.com`** && password: **`jamesbond`**
+
 ## Table of Contents
 * [General Info](#general-information)
-* [Installation](#installation)
 * [Technologies Used](#technologies-used)
+* [Installation](#installation)
 * [Features](#features)
 * [Screenshots](#screenshots)
-* [Usage](#usage)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
-<!-- * [License](#license) -->
 
 
 ## General Information
@@ -37,20 +42,6 @@
 - It has server side authentication and frontend side authorization. Input fields validation on both Backend and Frontend. More details below.
 - This project purpose was to show what I can achieve and hopefully change my career path.
 - I made this project only to my portfolio.
-
-## Installation
-Install the dependencies to both **Backend** and **Frontend** and start them separately.
-```sh
-cd Backend
-npm install
-npm run start:dev
-```
-```sh
-cd Frontend
-npm install
-npm start
-```
-
 
 ## Technologies Used
 - Backend:
@@ -68,6 +59,18 @@ npm start
   
 For the full list of dependencies check the package.json file please.
 
+## Installation
+Install the dependencies to both **Backend** and **Frontend** and start them separately.
+```sh
+cd Backend
+npm install
+npm run start:dev
+```
+```sh
+cd Frontend
+npm install
+npm start
+```
 
 ## Features
 
@@ -123,21 +126,17 @@ But by default if you can delete something you actually just set the `isDeleted`
   - orders
   - products
 
-[Customer document example]<img src="/images/customer_document_example.png">
+<p align=center>
+  <img src="/images/customer_document_example.png"><br />[Customer document example]
+</p>
 
 ## Screenshots
-[Main page screenshot]<img src="/images/main_page.png">
-[Shopping cart screenshot]<img src="/images/shopping_cart.png">
-[Checkout screenshot]<img src="/images/checkout.png">
-[Create account screenshot]<img src="/images/create_account.png">
-
-
-## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
-
-`write-your-code-here`
-
+<p align=center>
+  <img src="/images/main_page.png"><br />[Main page screenshot]<br />
+  <img src="/images/shopping_cart.png"><br />[Shopping cart screenshot]<br />
+  <img src="/images/checkout.png"><br />[Checkout screenshot]<br />
+  <img src="/images/create_account.png"><br />[Create account screenshot]<br />
+</p>
 
 ## Project Status
 Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
