@@ -24,6 +24,10 @@
   - email: **`customer@gmail.com`** && password: **`customer`**
 - Demo admin user:
   - email: **`bond@superb.com`** && password: **`jamesbond`**
+- For **Stripe** demo payment:
+  - Card information: **`4242 4242 4242 4242`** (only this card number works in demo)
+  - Date (MM / YY): **`02/25`** (any future date)
+  - CVC: **`222`** (any 3 digits)
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -31,7 +35,6 @@
 * [Installation](#installation)
 * [Features](#features)
 * [Screenshots](#screenshots)
-* [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
@@ -57,7 +60,7 @@
   - Zustand
   - Axios
   
-For the full list of dependencies check the package.json file please.
+For the full list of dependencies check the package.json files at `/Backend` and at `/Frontend` please.
 
 ## Installation
 Install the dependencies to both **Backend** and **Frontend** and start them separately.
@@ -138,34 +141,26 @@ But by default if you can delete something you actually just set the `isDeleted`
   <img src="/images/create_account.png"><br />[Create account screenshot]<br />
 </p>
 
-## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
-
 
 ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
 
 Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
+- Perfomance, loading speed improvement
 
 To do:
-- Feature to be added 1
-- Feature to be added 2
+- Adding a mailing system to inform customers by email
 
 
 ## Acknowledgements
 Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
+- This project was inspired by **ThemesGround**
+- This project was based on a ThemesGround free template from themehunt.com (unfotunatly this site is not working anymore).
+- Many thanks to my wife, me and @https://github.com/akospaska for trust.
 
 ## Contact
 Created by Gábor Jelenfi. gabor.jelenfi@gmail.com - feel free to contact me!
 
 
-<!-- Optional -->
-<!-- ## License -->
-<!-- This project is open source and available under the [... License](). -->
+## License
+**Copyright @ 2022 All rights reserved**
 
-<!-- You don't have to include all sections - just the one's relevant to your project -->
