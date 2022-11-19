@@ -127,7 +127,7 @@ But by default if you can delete something you actually just set the `isDeleted`
   - products
 
 <p align=center>
-  <img src="/images/customer_document_exampl.png"><br />[Customer document example]
+  <img src="/images/customer_db_document_example.png"><br />[Customer document example]
 </p>
 
 ## Screenshots
