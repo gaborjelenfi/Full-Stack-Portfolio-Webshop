@@ -63,6 +63,7 @@
 For the full list of dependencies check the package.json files at `/Backend` and at `/Frontend` please.
 
 ## Installation
+You need to add your own API keys.
 Install the dependencies to both **Backend** and **Frontend** and start them separately.
 ```sh
 cd Backend
