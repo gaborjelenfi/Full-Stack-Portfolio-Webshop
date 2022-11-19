@@ -155,7 +155,7 @@ To do:
 Give credit here.
 - This project was inspired by **ThemesGround**
 - This project was based on a ThemesGround free template from themehunt.com (unfotunatly this site is not working anymore).
-- Many thanks to my wife, me and @https://github.com/akospaska for trust.
+- Many thanks to my wife, me and [Ákos Paska](https://github.com/akospaska) for trust.
 
 ## Contact
 Created by Gábor Jelenfi. gabor.jelenfi@gmail.com - feel free to contact me!
