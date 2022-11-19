@@ -21,7 +21,7 @@
 #### Usage datas:
 - Create your own customer account at `Login/Create an Account`
 - Demo customers:
-  - email: **`zanna@gmail.com`** && password: **`zannarenee`**
+  - email: **`customer@gmail.com`** && password: **`customer`**
 - Demo admin user:
   - email: **`bond@superb.com`** && password: **`jamesbond`**
 
