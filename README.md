@@ -6,6 +6,7 @@
 <img src="/images/graphql.png" height="50px">
 <img src="/images/zustand.png" height="50px">
 <img src="/images/stripe.png" height="50px">
+<img src="/images/mailjet.png" height="50px">
 </p>
   
 # Full-Stack-Portfolio-Webshop
