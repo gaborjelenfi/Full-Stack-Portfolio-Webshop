@@ -33,7 +33,10 @@ const customerStore = (set, get) => ({
   orderIsSaved: false,
   signUpCustomer: async (createCustomerMutation, URL) => {
     try {
-      const responseSignUp = await axios.post(`${URL}/graphql`, createCustomerMutation);
+      const responseSignUp = await axios.post(
+        `${URL}/graphql`,
+        createCustomerMutation
+      );
       if (responseSignUp.data.errors) {
         const [error] = responseSignUp.data.errors;
         throw new Error(error.message);
@@ -77,7 +80,9 @@ const customerStore = (set, get) => ({
     set({ customerId: null });
     set({ token: null });
     set({ customerData: {} });
-    get().clearOrderData();
+    set({ billingAddress: emptyAddress });
+    set({ shippingAddress: emptyAddress });
+    set({ customerOrders: {} });
   },
   fetchCustomerData: async URL => {
     const customerDataQuery = {
@@ -155,11 +160,15 @@ const customerStore = (set, get) => ({
       }`,
     };
     try {
-      const response = await axios.post(`${URL}/graphql`, customerAddressQuery, {
-        headers: {
-          Authorization: 'Bearer ' + get().token,
-        },
-      });
+      const response = await axios.post(
+        `${URL}/graphql`,
+        customerAddressQuery,
+        {
+          headers: {
+            Authorization: 'Bearer ' + get().token,
+          },
+        }
+      );
       if (response.data.errors) {
         const [error] = response.data.errors;
         throw new Error(error.message);
@@ -174,11 +183,15 @@ const customerStore = (set, get) => ({
   },
   updateCustomerAddresses: async (updateCustomerAddressesQuery, URL) => {
     try {
-      const response = await axios.post(`${URL}/graphql`, updateCustomerAddressesQuery, {
-        headers: {
-          Authorization: 'Bearer ' + get().token,
-        },
-      });
+      const response = await axios.post(
+        `${URL}/graphql`,
+        updateCustomerAddressesQuery,
+        {
+          headers: {
+            Authorization: 'Bearer ' + get().token,
+          },
+        }
+      );
       const data = response.data.data.updateCustomerAddress;
       if (data.isBillingAddress) set({ billingAddress: data });
       if (data.isShippingAddress) set({ shippingAddress: data });
@@ -211,6 +224,7 @@ const customerStore = (set, get) => ({
       const response = await axios.post(`${URL}/graphql`, createOrderQuery);
       if (response.data.errors) {
         const [error] = response.data.errors;
+        console.log(error.message);
         throw new Error(error.message);
       }
       const orderResponse = response.data.data.createOrder;
@@ -220,9 +234,9 @@ const customerStore = (set, get) => ({
           updateCustomerOrders(
             customerId: "${customerId}",
             order: $order) {
-            customerId
-          }
-        }`,
+              customerId
+            }
+          }`,
         variables: {
           order: orderResponse,
         },
@@ -234,12 +248,12 @@ const customerStore = (set, get) => ({
           },
         });
       }
-      if (response.data.errors) {
-        const [error] = response.data.errors;
-        throw new Error(error.message);
-      }
       set({ errorMessage: null });
       set({ orderIsSaved: true });
+      await axios.post(`${URL}/send-mail`, {
+        orderData: orderResponse,
+        email: get().orderData.orderBillingAddress.email,
+      });
     } catch (error) {
       console.log(error);
       set({ orderIsSaved: false });

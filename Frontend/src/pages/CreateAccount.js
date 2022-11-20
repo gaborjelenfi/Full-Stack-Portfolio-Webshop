@@ -130,7 +130,6 @@ const CreateAccount = () => {
                   <form action="#" method="post" id="form-validate">
                     <div className="fieldset">
                       <input
-                        name
                         type="hidden"
                         defaultValue="bO6ubPokBJ71l86o"
                       />

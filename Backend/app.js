@@ -15,11 +15,20 @@ const helmet = require('helmet');
 const compression = require('compression');
 const morgan = require('morgan');
 const fs = require('fs');
+const nodemailer = require('nodemailer');
+const mailjetTransport = require('nodemailer-mailjet-transport');
 require('dotenv').config();
 
 const graphqlSchema = require('./graphql/schema');
 
 const app = express();
+
+const transporter = nodemailer.createTransport(mailjetTransport({
+  auth: {
+    apiKey: process.env.MAILJET_APIKEY,
+    apiSecret: process.env.MAILJET_SECRET_KEY
+  }
+}));
 
 // set up image storage and name
 const storage = multer.diskStorage({
@@ -151,12 +160,25 @@ mongoose
   })
   .catch(err => console.log(err));
 
-// setp up Stripe demo payment
+// set up Stripe demo payment
 app.post('/stripe-checkout', async (req, res) => {
   try {
     const dbProducts = await Product.find();
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
+      shipping_options: [
+        {
+          shipping_rate_data: {
+            type: 'fixed_amount',
+            fixed_amount: {amount: 1000, currency: 'usd'},
+            display_name: 'Fixed shipping price',
+            delivery_estimate: {
+              minimum: {unit: 'business_day', value: 5},
+              maximum: {unit: 'business_day', value: 7},
+            },
+          },
+        },
+      ],
       mode: 'payment',
       line_items: req.body.map(cartItem => {
         const product = dbProducts.find(
@@ -184,6 +206,41 @@ app.post('/stripe-checkout', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+// set up mailjet email semding feature
+app.post('/send-mail', async (req, res) => {
+  const {orderData, email} = req.body;
+  const mail = {
+    from: 'furnituresuperb@gmail.com',
+    to: email,
+    subject: 'Order confirmation',
+    html: `<h2>Order Confirmation</h2>
+          <h3>Order ID: ${orderData.orderId}</h3>
+          <h3>Order date: ${orderData.orderedAt}</h3>
+          <h3>Order total: $${orderData.orderTotal} (included shipping fee)</h3>
+          <p>Order status: ${orderData.orderStatus}</p>
+          <p>Billing address: ${orderData.billingAddress}</p>
+          <p>Shipping address: ${orderData.shippingAddress}</p>
+          <h4>Ordered Products:</h4>
+          ${orderData.orderedProductsArr.map(product => {
+          return `<ul>
+          <li>Name: ${product.name}</li>
+            <li>Color: ${product.color}</li>
+            <li>Category: ${product.furnitureCategory}</li>
+            <li>Manufacturer: ${product.manufacturer}</li>
+            <li>Subtotal price: ${product.cartQty} X $${product.price} = $${product.cartQty * product.price}</li>
+            </ul>`
+          }).join('')}
+          <h3>Thank you for your order!</h3>`
+  }
+  try {
+    await transporter.sendMail(mail);
+    res.status(200).json({ message: 'The mail is on the way' });
+  } catch (err) {
+    res.status(503).json({ message: 'Mail was not send!' });
+  }
+})
+
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {

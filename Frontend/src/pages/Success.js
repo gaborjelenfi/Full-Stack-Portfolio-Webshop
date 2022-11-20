@@ -78,8 +78,6 @@ const Success = () => {
 
   const status = 'paid';
 
-  let timeout = undefined;
-
   const createOrderMutation = async () => {
     let customerEmail = 'Not registered';
     if (customerData.email) {
@@ -135,6 +133,7 @@ const Success = () => {
     try {
       await createOrder(createOrderQuery, isAuth, URL);
     } catch (error) {
+      console.log(error);
       setErrorMessage(error);
     }
   };
@@ -144,25 +143,28 @@ const Success = () => {
     if (isRouteAccess) createOrderMutation();
   }, []);
 
-  if (orderIsSaved) {
-    // after 5 sec, route access denied and navigate to products list page
-    timeout = setTimeout(() => {
-      if (!errorMessage) {
-        clearIsFormComplete();
-        clearOrderData();
-      }
-      // registered customers navigate to account dashboard after successful payment
-      if (isAuth) navigate('/account-information/account-dashboard');
-      // unregistered customers navigate back to products list after successful payment
-      if (!isAuth) navigate('/products-list');
-    }, 5000);
-    // clear cart after successful payment
-    if (isRouteAccess) clearCart();
-  }
+  useEffect(() => {
+    if (orderIsSaved) {
+      // clear cart after successful payment
+      if (isRouteAccess) clearCart();
+      // after 5 sec, route access denied and navigate to products list page
+      setTimeout(() => {
+        if (!errorMessage) {
+          clearIsFormComplete();
+          clearOrderData();
+        }
+        // registered customers navigate to account dashboard after successful payment
+        if (isAuth) navigate('/account-information/account-dashboard');
+        // unregistered customers navigate back to products list after successful payment
+        if (!isAuth) navigate('/products-list');
+      }, 5000);
+    }
+  }, [clearCart, clearIsFormComplete, clearOrderData, errorMessage, isAuth, isRouteAccess, navigate, orderIsSaved]);
 
   window.onbeforeunload = () => {
     setRouteAccess(false);
   };
+
   return (
     <div className="inner-page">
       <div id="page">
@@ -197,7 +199,6 @@ const Success = () => {
                       to="/products-list"
                       className="btn-home"
                       onClick={() => {
-                        clearTimeout(timeout);
                         setRouteAccess(false);
                       }}
                     >

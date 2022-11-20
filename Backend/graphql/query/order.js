@@ -1,6 +1,6 @@
 const Order = require('../../models/order');
 const { GraphQLID, GraphQLString } = require('graphql');
-const { notAuthenticated, noFound } = require('../errorsData/errorsData');
+const { noFound } = require('../errorsData/errorsData');
 const OrderType = require('../types/orderType');
 
 const OrderQuery = {
@@ -12,9 +12,6 @@ const OrderQuery = {
   },
   resolve: async (parent, args, context) => {
     let order = null;
-    if (!context.isAuth && !context.isAdminAuth) {
-      notAuthenticated();
-    }
 
     if (args.id) {
       order = await Order.findById(args.id);
