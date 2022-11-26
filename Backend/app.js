@@ -207,7 +207,7 @@ app.post('/stripe-checkout', async (req, res) => {
   }
 });
 
-// set up mailjet email semding feature
+// set up mailjet email sending feature
 app.post('/send-mail', async (req, res) => {
   const {orderData, email} = req.body;
   const mail = {

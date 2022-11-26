@@ -6,6 +6,7 @@
 <img src="/images/graphql.png" height="50px">
 <img src="/images/zustand.png" height="50px">
 <img src="/images/stripe.png" height="50px">
+<img src="/images/mailjet.png" height="50px">
 </p>
   
 # Full-Stack-Portfolio-Webshop
@@ -84,7 +85,7 @@ npm start
   - view the products even with filter
   - add products to cart
   - edit cart
-  - demo buy via **Stripe**
+  - demo buy via **Stripe** (_After successful order, customers will get an email about the order_)
 
 - Customers with registration can:
   - store and edit their addresses:
@@ -112,7 +113,7 @@ npm start
   - create new admin user
   - edit every admin users' account data
   
-_For_ _demo_ _purpose_, _no_ _one_ _can_ _delete_ _anything!_\
+_For demo purpose, no one can delete anything!_ \
 If you install the project on your computer and you remove the `accessDenied()` method in any deletion file in mutation folder you can use that feature.\
 Find those files at `Backend/graphql/mutation/`.\
 But by default if you can delete something you actually just set the `isDeleted` field to true for that item in the database.
@@ -149,7 +150,8 @@ Room for improvement:
 - Perfomance, loading speed improvement
 
 To do:
-- Adding a mailing system to inform customers by email
+- [x] Add a mailing system to inform customers by email
+- [ ] Add 'Reset password' feature
 
 
 ## Acknowledgements
