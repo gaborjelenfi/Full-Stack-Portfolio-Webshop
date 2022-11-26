@@ -12,7 +12,7 @@ const paginateStore = (set, get) => ({
 });
 
 const usePaginateStore = create(
-  devtools(persist(paginateStore, { name: 'paginate' }))
+  devtools(persist(paginateStore, { name: 'paginate', getStorage: () => sessionStorage }))
 );
 
 export default usePaginateStore;

@@ -58,7 +58,7 @@ const shopByStore = (set, get) => ({
 });
 
 const useShopByStore = create(
-  devtools(persist(shopByStore, { name: 'shopBy' }))
+  devtools(persist(shopByStore, { name: 'shopBy', getStorage: () => sessionStorage }))
 );
 
 export default useShopByStore;

@@ -81,7 +81,7 @@ const validationStore = (set, get) => ({
 });
 
 const useValidationStore = create(
-  devtools(persist(validationStore, { name: 'validationStore' }))
+  devtools(persist(validationStore, { name: 'validationStore', getStorage: () => sessionStorage }))
 );
 
 export default useValidationStore;

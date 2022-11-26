@@ -5,7 +5,7 @@ const urlStore = () => ({
   baseURL: 'http://localhost:4000'
 });
 
-const useUrlStore = create(devtools(persist(urlStore, { name: 'url' })));
+const useUrlStore = create(devtools(persist(urlStore, { name: 'url', getStorage: () => sessionStorage })));
 
 export default useUrlStore;
 

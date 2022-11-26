@@ -42,6 +42,6 @@ const cartStore = (set, get) => ({
   },
 });
 
-const useCartStore = create(devtools(persist(cartStore, { name: 'cart' })));
+const useCartStore = create(devtools(persist(cartStore, { name: 'cart', getStorage: () => sessionStorage })));
 
 export default useCartStore;

@@ -275,7 +275,7 @@ const customerStore = (set, get) => ({
 });
 
 const useCustomerStore = create(
-  devtools(persist(customerStore, { name: 'customerStore' }))
+  devtools(persist(customerStore, { name: 'customerStore', getStorage: () => sessionStorage }))
 );
 
 export default useCustomerStore;

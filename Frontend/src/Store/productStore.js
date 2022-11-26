@@ -59,7 +59,7 @@ const productStore = (set, get) => ({
 });
 
 const useProductStore = create(
-  devtools(persist(productStore, { name: 'products' }))
+  devtools(persist(productStore, { name: 'products', getStorage: () => sessionStorage }))
 );
 
 export default useProductStore;

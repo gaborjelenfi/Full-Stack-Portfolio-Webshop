@@ -126,6 +126,6 @@ const adminStore = (set, get) => ({
   setAccessDenied: boolean => set({ accessDenied: boolean }),
 });
 
-const useAdminStore = create(devtools(persist(adminStore, { name: 'admin' })));
+const useAdminStore = create(devtools(persist(adminStore, { name: 'admin', getStorage: () => sessionStorage })));
 
 export default useAdminStore;

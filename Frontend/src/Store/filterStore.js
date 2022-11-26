@@ -52,7 +52,7 @@ const filterStore = (set, get) => ({
 });
 
 const useFilterStore = create(
-  devtools(persist(filterStore, { name: 'category' }))
+  devtools(persist(filterStore, { name: 'category', getStorage: () => sessionStorage }))
 );
 
 export default useFilterStore;
