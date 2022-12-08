@@ -14,7 +14,7 @@
 > This project is a Full Stack Portfolio Webshop based on MERN stack.
 > Please regard that this is an **MVP**. This **SPA** represents some of my knowledge in web development. 
 > I have been learning programming for a couple of years now. 
-> I have started with **Frontend** technologies as a hobby but I decided to make one step forward in April 2022 and I have been started **Backend** technologies since then.\
+> I have started with **Frontend** technologies as a hobby but I decided to make one step forward in April 2022 and I have been started **Backend** technologies since then.
 
 #### For customer site -> **Live** **demo** [_https://tangerine-fenglisu-dd980d.netlify.app_](https://tangerine-fenglisu-dd980d.netlify.app/).
 #### For admin site -> **Live** **demo** [_https://tangerine-fenglisu-dd980d.netlify.app/admin_](https://tangerine-fenglisu-dd980d.netlify.app/admin).
