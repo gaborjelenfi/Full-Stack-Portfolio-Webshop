@@ -156,7 +156,7 @@ To do:
 
 ## Acknowledgements
 - This project was inspired by **ThemesGround**
-- This project was based on a ThemesGround free template from themehunt.com (unfotunatly this site is not working anymore).
+- This project was based on a ThemesGround free template from themehunt.com (unfortunately this site is not working anymore).
 - Many thanks to my wife, me and [Ákos Paska](https://github.com/akospaska) for trust.
 
 ## Contact
